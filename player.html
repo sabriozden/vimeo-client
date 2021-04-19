@@ -1,0 +1,37 @@
+<html>
+<head>
+  <title>Test</title>
+</head>
+<!-- <body> -->
+<!-- <body> -->
+
+  <iframe src="https://player.vimeo.com/video/521808362" width="500" height="500" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script>
+    var iframe = document.querySelector('iframe');
+    var player = new Vimeo.Player(iframe);
+	
+	   player.setVolume(0);
+
+    player.on('play', function() {
+      console.log('Played the video');
+    });
+
+    player.getVideoTitle().then(function(title) {
+      console.log('title:', title);
+    });
+	
+	
+	player.on('ended', function(data) {	
+    console.log('video ended');
+    console.log(data);
+});
+
+player.getDuration().then(function(duration) {
+  console.log(duration);
+})
+  </script>
+
+</body>
+</html>
